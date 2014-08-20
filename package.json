@@ -1,0 +1,11 @@
+{
+  "name": "vz.collection",
+  "version": "1.0.2",
+  "description": "An Object that lets you store several functions and execute them later",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Valls Fernández <manolo@chatiku.com>",
+  "license": "LGPL"
+}
