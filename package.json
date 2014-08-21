@@ -1,6 +1,6 @@
 {
   "name": "vz.collection",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An Object that lets you store several functions and execute them later",
   "main": "main.js",
   "repository": {
