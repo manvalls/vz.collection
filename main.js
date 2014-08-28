@@ -30,5 +30,5 @@ Collection.prototype.resolve = function(){
 	return res;
 };
 
-Collection.prototype.apply = Collection.prototype.resolve;
+Collection.prototype.apply = Collection.prototype.call = Collection.prototype.resolve;
 
