@@ -3,6 +3,9 @@
   "version": "1.0.7",
   "description": "An Object that lets you store several functions and execute them later",
   "main": "main.js",
+  "dependencies": {
+    "vz.property": ""
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/manvalls/vz.collection.git"

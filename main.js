@@ -1,34 +1,38 @@
+var Property = require('vz.property'),
+    
+    functionsList = new Property(),
+    argumentsList = new Property(),
+    thisArgList = new Property();
+
 
 function Collection(){
-	
-	Object.defineProperties(this,{
-		_fs: {
-			value: []
-		},
-		_args: {
-			value: []
-		},
-		_thats: {
-			value: []
-		}
-	});
-	
+	functionsList.of(this).set([]);
+  argumentsList.of(this).set([]);
+  thisArgList.of(this).set([]);
 }
 
 module.exports = Collection;
 
-Collection.prototype.add = function(f,args,that){
-	this._fs.push(f);
-	this._args.push(args);
-	this._thats.push(that);
-	return this;
-};
-
-Collection.prototype.resolve = function(){
-	var f,res = [];
-	while(f = this._fs.shift()) res.push(f.apply(this._thats.shift(),this._args.shift()));
+function resolve(){
+	var f,res = [],
+      fs = functionsList.of(this).get(),
+      args = argumentsList.of(this).get(),
+      thisArgs = thisArgList.of(this).get();
+  
+	while(f = fs.shift()) res.push(f.apply(thisArgs.shift(),args.shift()));
+  
 	return res;
-};
+}
 
-Collection.prototype.apply = Collection.prototype.call = Collection.prototype.resolve;
+Object.defineProperties(Collection.prototype,{
+  add: {value: function(f,args,thisArg){
+    functionsList.of(this).get().push(f);
+    argumentsList.of(this).get().push(args);
+    thisArgList.of(this).get().push(thisArg);
+    return this;
+  }},
+  resolve: {value: resolve},
+  apply: {value: resolve},
+  call: {value: resolve}
+});
 
