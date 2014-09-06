@@ -26,3 +26,23 @@ console.log(result);  // An array with returned values
 // Now the collection is empty again
 
 ```
+
+## Reference
+
+### Collection object
+
+#### Constructor()
+
+Creates and initializes a new collection
+
+#### Collection.add(function,arguments,thisArg)
+
+Adds to the collection the given function, with given arguments and thisArg
+
+#### Collection.resolve()
+#### Collection.apply()
+#### Collection.call()
+
+Executes functions of the collection in the order they were added, and empties it. Returns an array with the values returned by each of the functions of the collection.
+
+
